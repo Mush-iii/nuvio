@@ -1,7 +1,3 @@
-/**
- * circleftp - Nuvio Provider (BDIX)
- * Circle FTP REST API scraper. Runs on the device, no server needed.
- */
 var PROVIDER_NAME = "CircleFTP";
 var DEFAULT_API_URL = "http://new.circleftp.net:5000/api";
 var DEFAULT_TMDB_KEYS = [
