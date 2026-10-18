@@ -1,7 +1,3 @@
-/**
- * ftpbd - Nuvio Provider (BDIX)
- * Emby guest-login scraper. Runs on the device, no server needed.
- */
 var PROVIDER_NAME = "FTPBD";
 var DEFAULT_EMBY_URL = "http://media.ftpbd.net:8096";
 var DEFAULT_USERNAME = "Info Internet Service";
