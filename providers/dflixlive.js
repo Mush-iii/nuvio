@@ -1,7 +1,3 @@
-/**
- * dflixlive - Nuvio Provider (BDIX)
- * DFLIX.live JSON API scraper. Runs on the device, no server needed.
- */
 var PROVIDER_NAME = "DFLIX.live";
 var DEFAULT_BASE_URL = "https://dflix.live";
 var DEFAULT_TMDB_KEYS = [
