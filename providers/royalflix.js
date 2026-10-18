@@ -1,7 +1,3 @@
-/**
- * royalflix - Nuvio Provider (BDIX)
- * RoyalFlix autoindex scraper ported from CloudStream. Runs on the device, no server needed.
- */
 var PROVIDER_NAME = "RoyalFlix";
 var DEFAULT_BASE_URL = "http://royalflix.net";
 var DEFAULT_TMDB_KEYS = [
