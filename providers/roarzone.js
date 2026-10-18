@@ -1,7 +1,3 @@
-/**
- * roarzone - Nuvio Provider (BDIX)
- * Emby guest-login scraper. Runs on the device, no server needed.
- */
 var PROVIDER_NAME = "RoarZone";
 var DEFAULT_EMBY_URL = "https://play.roarzone.net";
 var DEFAULT_USERNAME = "RoarZone_Guest";
