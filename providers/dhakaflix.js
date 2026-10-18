@@ -1,7 +1,3 @@
-/**
- * dhakaflix - Nuvio Provider (BDIX)
- * Live h5ai directory scraper. Runs on the device, no server needed.
- */
 var PROVIDER_NAME = "DhakaFlix";
 var DEFAULT_MOVIE_ROOTS = [
   "http://172.16.50.7/DHAKA-FLIX-7/English%20Movies/",
