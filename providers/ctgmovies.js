@@ -1,7 +1,3 @@
-/**
- * ctgmovies - Nuvio Provider (BDIX)
- * ctgmovies.com page scraper. Authenticated with a ctg_token cookie.
- */
 var PROVIDER_NAME = "CTGMovies";
 var BASE = "https://ctgmovies.com";
 var DEFAULT_TMDB_KEYS = [
