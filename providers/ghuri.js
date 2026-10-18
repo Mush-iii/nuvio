@@ -1,7 +1,3 @@
-/**
- * ghuri - Nuvio Provider (BDIX)
- * Ghuri (103.96.104.6) movie + TV scraper. Runs on the device, no server needed.
- */
 var PROVIDER_NAME = "Ghuri";
 var DEFAULT_BASE_URL = "http://103.96.104.6";
 var DEFAULT_TMDB_KEYS = [
