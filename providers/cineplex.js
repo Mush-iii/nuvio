@@ -1,7 +1,3 @@
-/**
- * cineplex - Nuvio Provider (BDIX)
- * CinePlex scraper ported from CloudStream. Runs on the device, no server needed.
- */
 var PROVIDER_NAME = "CinePlex";
 var DEFAULT_BASE_URL = "http://cineplexbd.net";
 var DEFAULT_TMDB_KEYS = [
