@@ -1,7 +1,3 @@
-/**
- * flixhub - Nuvio Provider
- * FlixHub scraper ported from CloudStream. Runs on the device, no server needed.
- */
 var PROVIDER_NAME = "FlixHub";
 var DEFAULT_BASE_URL = "https://flixhub.net";
 var DEFAULT_TMDB_KEYS = [
