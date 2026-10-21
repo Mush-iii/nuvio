@@ -1,6 +1,6 @@
 {
   "name": "Nuvio BDIX",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "description": "BDIX and Bangladeshi streaming scrapers for Nuvio",
   "author": "mushiii",
   "scrapers": [
@@ -198,10 +198,11 @@
       "id": "basplay",
       "name": "BAS PLAY",
       "description": "Direct streams from BAS PLAY (10.20.30.40)",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": "ohhraiyan",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/basplay.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/basplay.js",
@@ -217,12 +218,13 @@
     },
     {
       "id": "dflix",
-      "name": "DFLIX",
-      "description": "Direct streams from DFLIX (discoveryftp)",
-      "version": "1.0.0",
+      "name": "Discovery Flix",
+      "description": "Direct streams from Discovery Flix (discoveryftp)",
+      "version": "1.1.0",
       "author": "ohhraiyan",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/dflix.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/dflix.js",
@@ -431,11 +433,12 @@
     {
       "id": "basplay",
       "name": "BAS PLAY",
-      "description": "BAS PLAY scraper for Nuvio",
-      "version": "1.0.0",
+      "description": "Direct streams from BAS PLAY (10.20.30.40)",
+      "version": "1.1.0",
       "author": "ohhraiyan",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/basplay.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/basplay.js",
@@ -451,12 +454,13 @@
     },
     {
       "id": "dflix",
-      "name": "DFLIX",
-      "description": "discoveryftp scraper for Nuvio",
-      "version": "1.0.0",
+      "name": "Discovery Flix",
+      "description": "Direct streams from Discovery Flix (discoveryftp)",
+      "version": "1.1.0",
       "author": "ohhraiyan",
       "supportedTypes": [
-        "movie"
+        "movie",
+        "tv"
       ],
       "filename": "providers/dflix.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/dflix.js",
