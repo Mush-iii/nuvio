@@ -5,23 +5,42 @@ function norm(s) {
   return (s || '').toLowerCase().replace(/&amp;/g, 'and').replace(/[^a-z0-9]+/g, '');
 }
 
-function getMeta(id, key) {
-  return fetch('https://api.themoviedb.org/3/movie/' + id + '?api_key=' + key)
+function dec(s) {
+  try { return decodeURIComponent(s); } catch (e) { return s; }
+}
+
+function epMatch(str, s, e) {
+  str = dec(str || '');
+  var S = String(parseInt(s, 10)), E = String(parseInt(e, 10));
+  return new RegExp('s0*' + S + '[ ._-]*e0*' + E + '(?!\\d)', 'i').test(str)
+      || new RegExp('(^|[^0-9])0*' + S + 'x0*' + E + '(?!\\d)', 'i').test(str)
+      || new RegExp('season[ ._-]*0*' + S + '[^]*?episode[ ._-]*0*' + E + '(?!\\d)', 'i').test(str)
+      || (new RegExp('season[ ._-]*0*' + S + '(?!\\d)', 'i').test(str)
+          && new RegExp('(^|[^a-z0-9])e(?:p|pisode)?[ ._-]*0*' + E + '(?!\\d)', 'i').test(str));
+}
+
+function getMeta(kind, id, key) {
+  return fetch('https://api.themoviedb.org/3/' + kind + '/' + id + '?api_key=' + key)
     .then(function (r) { return r.json(); })
     .then(function (t) {
-      return { title: t.title || '', year: (t.release_date || '').slice(0, 4) };
+      return {
+        title: t.title || t.name || '',
+        year: (t.release_date || t.first_air_date || '').slice(0, 4)
+      };
     });
 }
 
-function search(base, q) {
-  return fetch(base + '/m/find/' + encodeURIComponent(q))
+// kind: 'm' (movies) or 's' (series)
+function search(base, kind, q) {
+  var viewRe = new RegExp('href=["\']/' + kind + '/view/(\\d+)["\']');
+  return fetch(base + '/' + kind + '/find/' + encodeURIComponent(q))
     .then(function (r) { return r.text(); })
     .then(function (html) {
       var out = [];
       html.split('<div class="card"').slice(1).forEach(function (p) {
-        var id = (p.match(/href=["']\/m\/view\/(\d+)["']/) || [])[1];
+        var id = (p.match(viewRe) || [])[1];
         if (!id) return;
-        var d = p.slice(p.indexOf('class="details"'));
+        var d = p.slice(Math.max(0, p.indexOf('class="details"')));
         var tokens = d.replace(/<[^>]+>/g, '|').split('|')
           .map(function (s) { return s.replace(/&amp;/g, '&').replace(/&#039;|&#39;/g, "'").trim(); })
           .filter(Boolean);
@@ -54,50 +73,90 @@ function files(base, html) {
   return out;
 }
 
-function getStreams(tmdbId, mediaType) {
-  if (mediaType === 'tv') return Promise.resolve([]);
+function uniq(arr) {
+  var done = {};
+  return arr.filter(function (u) { return !done[u] && (done[u] = 1); });
+}
+
+function movieLinks(base, hit, page) {
+  return fetch(page).then(function (r) { return r.text(); }).then(function (html) {
+    var top = html.split('Cast And Crew')[0];
+    var links = files(base, top);
+    var others = [], seen = {}, re = /href=["']\/m\/view\/(\d+)["']/g, m;
+    while ((m = re.exec(top))) {
+      if (m[1] !== hit.id && !seen[m[1]]) { seen[m[1]] = 1; others.push(m[1]); }
+    }
+    return Promise.all(others.slice(0, 3).map(function (id) {
+      return fetch(base + '/m/view/' + id)
+        .then(function (r) { return r.text(); })
+        .then(function (h2) { return files(base, h2.split('Cast And Crew')[0]); })
+        .catch(function () { return []; });
+    })).then(function (more) {
+      more.forEach(function (a) { links = links.concat(a); });
+      return uniq(links);
+    });
+  });
+}
+
+// series: collect file links from the series page + its season/episode sub-pages
+function tvLinks(base, hit, page, season, episode) {
+  return fetch(page).then(function (r) { return r.text(); }).then(function (html) {
+    var links = files(base, html);
+    var subs = [], seen = {}, re = /href=["'](\/s\/[^"']+)["']/g, m;
+    while ((m = re.exec(html))) {
+      var h = m[1].replace(/&amp;/g, '&');
+      if (/\/s\/find\//.test(h) || h === '/s/view/' + hit.id || seen[h]) continue;
+      // only follow links tied to this show or to season/episode pages
+      if (h.indexOf(hit.id) === -1 && !/season|episode|ep|[?&]s=|[?&]e=/i.test(h)) continue;
+      seen[h] = 1; subs.push(h);
+    }
+    return Promise.all(subs.slice(0, 8).map(function (h) {
+      return fetch(base + h)
+        .then(function (r) { return r.text(); })
+        .then(function (h2) { return files(base, h2); })
+        .catch(function () { return []; });
+    })).then(function (more) {
+      more.forEach(function (a) { links = links.concat(a); });
+      links = uniq(links);
+      var exact = links.filter(function (u) { return epMatch(u, season, episode); });
+      return exact;
+    });
+  });
+}
+
+function getStreams(tmdbId, mediaType, season, episode) {
+  var isTv = mediaType === 'tv';
+  if (isTv && (!season || !episode)) return Promise.resolve([]);
 
   var settings = (typeof globalThis !== 'undefined' && globalThis.SCRAPER_SETTINGS) || {};
   var BASE = String(settings.dflixBaseUrl || DEFAULT_BASE_URL).replace(/\/+$/, '');
   var TMDB_KEY = settings.tmdbApiKey || DEFAULT_TMDB_KEY;
+  var kind = isTv ? 's' : 'm';
 
-  return getMeta(tmdbId, TMDB_KEY).then(function (t) {
+  return getMeta(isTv ? 'tv' : 'movie', tmdbId, TMDB_KEY).then(function (t) {
     var title = t.title, year = t.year, short = title.split(':')[0];
-    return search(BASE, title)
+    return search(BASE, kind, title)
       .then(function (res) {
         var h = pick(res, title, year);
         if (h || short === title) return h;
-        return search(BASE, short).then(function (r2) { return pick(r2, title, year) || pick(r2, short, year); });
+        return search(BASE, kind, short).then(function (r2) { return pick(r2, title, year) || pick(r2, short, year); });
       })
       .then(function (hit) {
         if (!hit) return [];
-        var page = BASE + '/m/view/' + hit.id;
-        return fetch(page).then(function (r) { return r.text(); }).then(function (html) {
-          var top = html.split('Cast And Crew')[0];
-          var links = files(BASE, top);
-          var others = [], seen = {}, re = /href=["']\/m\/view\/(\d+)["']/g, m;
-          while ((m = re.exec(top))) {
-            if (m[1] !== hit.id && !seen[m[1]]) { seen[m[1]] = 1; others.push(m[1]); }
-          }
-          return Promise.all(others.slice(0, 3).map(function (id) {
-            return fetch(BASE + '/m/view/' + id)
-              .then(function (r) { return r.text(); })
-              .then(function (h2) { return files(BASE, h2.split('Cast And Crew')[0]); })
-              .catch(function () { return []; });
-          })).then(function (more) {
-            more.forEach(function (a) { links = links.concat(a); });
-            var done = {};
-            return links.filter(function (u) { return !done[u] && (done[u] = 1); }).map(function (u) {
-              var q = (decodeURIComponent(u).match(/(2160|1080|720|480)p/i) || [])[0] || 'Unknown';
-              return {
-                name: 'DFLIX',
-                title: title + ' ' + q,
-                url: u,
-                quality: q,
-                headers: { Referer: page },
-                provider: 'dflix'
-              };
-            });
+        var page = BASE + '/' + kind + '/view/' + hit.id;
+        var linksP = isTv ? tvLinks(BASE, hit, page, season, episode) : movieLinks(BASE, hit, page);
+        return linksP.then(function (links) {
+          var ep = isTv ? ' S' + ('0' + season).slice(-2) + 'E' + ('0' + episode).slice(-2) : '';
+          return links.map(function (u) {
+            var q = (dec(u).match(/(2160|1080|720|480)p/i) || [])[0] || 'Unknown';
+            return {
+              name: 'Discovery Flix',
+              title: title + ep + ' ' + q,
+              url: u,
+              quality: q,
+              headers: { Referer: page },
+              provider: 'dflix'
+            };
           });
         });
       });
@@ -106,11 +165,11 @@ function getStreams(tmdbId, mediaType) {
 
 function onSettings() {
   return Promise.resolve([
-    { type: 'header', label: 'DFLIX Configuration' },
+    { type: 'header', label: 'Discovery Flix Configuration' },
     {
       type: 'text',
       key: 'dflixBaseUrl',
-      label: 'DFLIX Base URL',
+      label: 'Discovery Flix Base URL',
       placeholder: DEFAULT_BASE_URL,
       defaultValue: DEFAULT_BASE_URL,
       description: 'Default: ' + DEFAULT_BASE_URL
