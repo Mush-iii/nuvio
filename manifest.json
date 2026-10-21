@@ -1,6 +1,6 @@
 {
   "name": "Nuvio BDIX",
-  "version": "1.7.2",
+  "version": "1.8.0",
   "description": "BDIX and Bangladeshi streaming scrapers for Nuvio",
   "author": "mushiii",
   "scrapers": [
@@ -10,12 +10,18 @@
       "description": "DhakaFlix scraper for Nuvio",
       "version": "1.1.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/dhakaflix.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/dhakaflix.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "dflixlive",
@@ -23,12 +29,18 @@
       "description": "DFLIX.live scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/dflixlive.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/dflixlive.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "cineplex",
@@ -36,12 +48,18 @@
       "description": "CinePlex scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/cineplex.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/cineplex.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "flixhub",
@@ -49,12 +67,18 @@
       "description": "FlixHub scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/flixhub.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/flixhub.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "royalflix",
@@ -62,12 +86,18 @@
       "description": "RoyalFlix scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/royalflix.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/royalflix.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "circleftp",
@@ -75,12 +105,18 @@
       "description": "CircleFTP scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/circleftp.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/circleftp.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "ftpbd",
@@ -88,12 +124,18 @@
       "description": "FTPBD scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/ftpbd.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/ftpbd.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "roarzone",
@@ -101,12 +143,18 @@
       "description": "RoarZone scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/roarzone.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/roarzone.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "ctgmovies",
@@ -114,12 +162,18 @@
       "description": "CTGMovies scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/ctgmovies.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/ctgmovies.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "ghuri",
@@ -127,12 +181,60 @@
       "description": "Ghuri scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/ghuri.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/ghuri.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
+    },
+    {
+      "id": "basplay",
+      "name": "BAS PLAY",
+      "description": "Direct streams from BAS PLAY (10.20.30.40)",
+      "version": "1.0.0",
+      "author": "ohhraiyan",
+      "supportedTypes": [
+        "movie"
+      ],
+      "filename": "providers/basplay.js",
+      "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/basplay.js",
+      "enabled": true,
+      "hasSettings": true,
+      "formats": [
+        "mkv",
+        "mp4"
+      ],
+      "contentLanguage": [
+        "en"
+      ]
+    },
+    {
+      "id": "dflix",
+      "name": "DFLIX",
+      "description": "Direct streams from DFLIX (discoveryftp)",
+      "version": "1.0.0",
+      "author": "ohhraiyan",
+      "supportedTypes": [
+        "movie"
+      ],
+      "filename": "providers/dflix.js",
+      "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/dflix.js",
+      "enabled": true,
+      "hasSettings": true,
+      "formats": [
+        "mkv",
+        "mp4"
+      ],
+      "contentLanguage": [
+        "en"
+      ]
     }
   ],
   "providers": [
@@ -142,12 +244,18 @@
       "description": "DhakaFlix scraper for Nuvio",
       "version": "1.1.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/dhakaflix.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/dhakaflix.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "dflixlive",
@@ -155,12 +263,18 @@
       "description": "DFLIX.live scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/dflixlive.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/dflixlive.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "cineplex",
@@ -168,12 +282,18 @@
       "description": "CinePlex scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/cineplex.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/cineplex.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "flixhub",
@@ -181,12 +301,18 @@
       "description": "FlixHub scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/flixhub.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/flixhub.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "royalflix",
@@ -194,12 +320,18 @@
       "description": "RoyalFlix scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/royalflix.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/royalflix.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "circleftp",
@@ -207,12 +339,18 @@
       "description": "CircleFTP scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/circleftp.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/circleftp.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "ftpbd",
@@ -220,12 +358,18 @@
       "description": "FTPBD scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/ftpbd.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/ftpbd.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "roarzone",
@@ -233,12 +377,18 @@
       "description": "RoarZone scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/roarzone.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/roarzone.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "ctgmovies",
@@ -246,12 +396,18 @@
       "description": "CTGMovies scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/ctgmovies.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/ctgmovies.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
     },
     {
       "id": "ghuri",
@@ -259,12 +415,60 @@
       "description": "Ghuri scraper for Nuvio",
       "version": "1.0.0",
       "author": "mushiii",
-      "supportedTypes": ["movie", "tv"],
+      "supportedTypes": [
+        "movie",
+        "tv"
+      ],
       "filename": "providers/ghuri.js",
       "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/ghuri.js",
       "enabled": true,
       "hasSettings": true,
-      "formats": ["mkv", "mp4"]
+      "formats": [
+        "mkv",
+        "mp4"
+      ]
+    },
+    {
+      "id": "basplay",
+      "name": "BAS PLAY",
+      "description": "BAS PLAY scraper for Nuvio",
+      "version": "1.0.0",
+      "author": "ohhraiyan",
+      "supportedTypes": [
+        "movie"
+      ],
+      "filename": "providers/basplay.js",
+      "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/basplay.js",
+      "enabled": true,
+      "hasSettings": true,
+      "formats": [
+        "mkv",
+        "mp4"
+      ],
+      "contentLanguage": [
+        "en"
+      ]
+    },
+    {
+      "id": "dflix",
+      "name": "DFLIX",
+      "description": "discoveryftp scraper for Nuvio",
+      "version": "1.0.0",
+      "author": "ohhraiyan",
+      "supportedTypes": [
+        "movie"
+      ],
+      "filename": "providers/dflix.js",
+      "url": "https://raw.githubusercontent.com/Mush-iii/nuvio/refs/heads/main/providers/dflix.js",
+      "enabled": true,
+      "hasSettings": true,
+      "formats": [
+        "mkv",
+        "mp4"
+      ],
+      "contentLanguage": [
+        "en"
+      ]
     }
   ]
 }
